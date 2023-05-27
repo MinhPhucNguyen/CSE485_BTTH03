@@ -1,6 +1,6 @@
 <?php
-require_once "../app/models/Article.php";
-require_once  "../app/config/DBConnect.php";
+require_once APP_ROOT . "/database/DBConnect.php";
+require_once APP_ROOT . "/app/models/Article.php";
 class ArticleService
 {
     public static function getAllArticles()
