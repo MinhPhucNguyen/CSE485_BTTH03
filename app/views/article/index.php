@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-inline-block">Article List</h4>
-                    <a href="?route=create" class="btn btn-success float-end">Add New Article</a>
+                    <a href="<?= DOMAIN . '?action=create'?>" class="btn btn-success float-end">Add New Article</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped">
@@ -45,9 +45,12 @@
                                     <td><?= $article->getCategory_id() ?></td>
                                     <td><?= $article->getMember_id() ?></td>
                                     <td>
-                                        <a href="?route=edit" class="btn btn-primary">Edit</a>
-                                        <form action="" method="post">
-                                            <button type="submit" class="btn btn-danger delete-btn" value="<?=$article->getID()?>">Delete</button>
+                                        <form action="<?= DOMAIN . '?route=/'.'&action=select'?>" method="post">
+                                            <button type="submit" class="btn btn-primary" name="edit-btn" value="<?=$article->getID()?>">Edit</button>
+                                        </form>
+                                        
+                                        <form action="<?= DOMAIN . '?route=/'.'&action=delete'?>" method="post">
+                                            <button type="submit" class="btn btn-danger" name="delete-btn" value="<?=$article->getID()?>">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

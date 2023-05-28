@@ -14,6 +14,15 @@ switch ($route){
         else if($action == 'store'){
             $articleController->store();
         }
+        else if($action == 'delete'){
+            $articleController->delete();
+        }
+        else if($action == 'edit'){
+            $articleController->edit();
+        }
+        else if($action == 'select'){
+            $articleController->select();
+        }
         else{
             $articleController->index();
         }

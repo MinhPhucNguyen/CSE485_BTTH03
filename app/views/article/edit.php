@@ -17,42 +17,56 @@
         <div class="mt-4">
             <div class="card">
                 <div class="card-header">
-                    <a href="?route=article" class="btn btn-danger float-end">BACK</a>
+                    <a href="<?= DOMAIN ?>" class="btn btn-danger float-end">BACK</a>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="<?= DOMAIN . '?route=/'.'&action=edit'?>" method="POST" enctype="multipart/form-data">
+                        <?php
+                        foreach($articles as $article){?>
+                        <div class="form-group mb-4">
+                            <input type="hidden" value="<?=$article->getID()?>" name="id">
+                        </div>
                         <div class="form-group mb-4">
                             <label for="">Title</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="title" value="<?=$article->getTitle()?>">
                         </div>
                         <div class="form-group mb-4">
                             <label for="">Summary</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="summary" value="<?=$article->getSummary()?>">
                         </div>
                         <div class="form-group mb-4">
                             <label for="">Content</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="content"value="<?=$article->getContent()?>">
                         </div>
+                        <?php
+                        }?>
                         <div class="form-group mb-4">
-                            <label name="category" for="">Category</label>
-                            <select class="form-control ">
-                            
+                            <label for="">Category</label>
+                            <select name="category" class="form-control ">
+                                <?php foreach ($categories as $category) {
+                                ?>
+                                    <option value="<?= $category->getID() ?>"><?= $category->getName() ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group mb-4">
                             <label for="">Author</label>
                             <select name="author" class="form-control ">
-                                <option value="">1</option>
-                                <option value="">1</option>
-                                <option value="">1</option>
-                                <option value="">1</option>
+                                <?php foreach ($authors as $author) {
+                                ?>
+                                    <option value="<?= $author->getId() ?>"><?= $author->getForename() ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
-                        <div class="form-group mb-4">
+                        <!-- <div class="form-group mb-4">
                             <label for="">Image</label>
                             <input type="file" name="image" id="" class="form-control">
-                        </div>
-                        <button class="btn  btn-success">SAVE</button>
+                        </div> -->
+                        <button class="btn  btn-success" name="save-btn">SAVE</button>
                     </form>
 
                 </div>

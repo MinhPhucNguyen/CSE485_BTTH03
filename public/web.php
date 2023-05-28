@@ -21,11 +21,14 @@ switch ($route) {
         require_once APP_ROOT."/app/controllers/ArticleController.php";
         $articleController = new ArticleController();
         $articleController->edit();
-
-    // case 'delete';
-    //     require_once APP_ROOT."/app/controllers/ArticleController.php";
-    //     $articleController = new ArticleController();
-    //     $articleController->delete();
+    case 'select';
+        require_once APP_ROOT."/app/controllers/ArticleController.php";
+        $articleController = new ArticleController();
+        $articleController->select();
+    case 'delete';
+        require_once APP_ROOT."/app/controllers/ArticleController.php";
+        $articleController = new ArticleController();
+        $articleController->delete();
     default:
         echo "Not Found";
         break;

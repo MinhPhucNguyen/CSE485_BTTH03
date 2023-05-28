@@ -39,33 +39,20 @@
                             <?php
                             foreach ($articles as $article) {
                             ?>
-<<<<<<< HEAD
-                            <tr>
-                                <td><?= $article->getID() ?></td>
-                                <td><?= $article->getTitle() ?></td>
-                                <td><?= $article->getSummary() ?></td>
-                                <td><?= $article->getContent() ?></td>
-                                <td>
-                                    <a href="?route=edit" class="btn btn-primary">Edit</a>
-                                    <form action="">
-                                        <a href="?route=delete" class="btn btn-danger delete-btn" value="<?=$article->getID()?>">Delete</a>
-                                    </form>
-                                </td>
-                            </tr>
-=======
                                 <tr>
                                     <td><?= $article->getID() ?></td>
                                     <td><?= $article->getTitle() ?></td>
                                     <td><?= $article->getSummary() ?></td>
                                     <td><?= $article->getContent() ?></td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <form action="">
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        <form action="<?= DOMAIN . '?route=/'.'&action=select'?>" method="post">
+                                            <button type="submit" class="btn btn-primary" name="edit-btn" value="<?=$article->getID()?>">Edit</button>
+                                        </form>
+                                        <form action="<?= DOMAIN . '?route=/'.'&action=delete'?>" method="post">
+                                            <button type="submit" name="delete-btn" value="<?=$article->getID()?>" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
->>>>>>> 9cb5573b51d55b95b939dd27cc97cd27a930ab6f
                             <?php
                             }
                             ?>

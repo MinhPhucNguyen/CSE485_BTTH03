@@ -71,4 +71,44 @@ class ArticleService
         $stmt->execute();
 
     }
+
+    public static function deleteArticle($articleID){
+        $DBConnect = new DBConnect();
+        $conn = $DBConnect->getConnection();
+
+        $sql = "DELETE FROM article WHERE id = '$articleID'";
+        $stmt = $conn->query($sql);
+        $stmt->execute();
+    }
+
+    public static function getArticleByID($articleID){
+        $DBConnect = new DBConnect();
+        $conn = $DBConnect->getConnection();
+
+        $sql = "SELECT *FROM article WHERE id = '$articleID'";
+        $stmt = $conn->query($sql);
+        $articles = [];
+        while ($row = $stmt->fetch()) {
+            $article = new Article(
+                $row['id'],
+                $row['title'],
+                $row['summary'],
+                $row['content'],
+                self::getCategoryNameByID($row['category_id']), //self:: -> gọi chính class hiện tại đang đứng
+                self::getAuthorNameByID($row['member_id']),
+            );
+            array_push($articles, $article);
+        }
+
+        return $articles;
+    }
+
+    public static function editArticle(Article $article){
+        $DBConnect = new DBConnect();
+        $conn = $DBConnect->getConnection();
+
+        $sql = "UPDATE article SET title='{$article->getTitle()}', summary = '{$article->getSummary()}', content ='{$article->getContent()}', category_id = '{$article->getCategory_id()}', member_id = '{$article->getMember_id()}' WHERE id = '{$article->getID()}'";
+        $stmt = $conn->query($sql);
+        $stmt->execute();
+    }
 }
