@@ -17,11 +17,7 @@
         </div>
         <div class="mt-4">
             <div>
-<<<<<<< HEAD
-                <a href="<?= DOMAIN . 'app/views/article/create.php'?>" class="btn btn-success">Add New Article</a>
-=======
                 <a href="<?= DOMAIN . '?action=create'?>" class="btn btn-success">Add New Article</a>
->>>>>>> phuc
             </div>
             <div class="card mt-4">
 
