@@ -55,4 +55,20 @@ class ArticleService
 
         return $author['forename'];
     }
+
+    public static function createArticle(Article $article)
+    {
+        $DBConnect = new DBConnect();
+        $conn = $DBConnect->getConnection();
+
+        $sql = "INSERT INTO article(title, summary, content, category_id, member_id) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(1, $article->getTitle(), PDO::PARAM_STR);
+        $stmt->bindValue(2, $article->getSummary(), PDO::PARAM_STR);
+        $stmt->bindValue(3, $article->getContent(), PDO::PARAM_STR);
+        $stmt->bindValue(4, $article->getCategory_id(), PDO::PARAM_INT);
+        $stmt->bindValue(5, $article->getMember_id(), PDO::PARAM_INT);
+        $stmt->execute();
+
+    }
 }

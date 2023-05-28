@@ -18,28 +18,28 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-inline-block">Add New Article</h4>
-                    <a href="?route=article" class="btn btn-danger float-end">BACK</a>
+                    <a href="<?= DOMAIN ?>" class="btn btn-danger float-end">BACK</a>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="<?= DOMAIN . '?route=/'.'&action=store'?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group mb-4">
                             <label for="">Title</label>
                             <input type="text" class="form-control" name="title">
                         </div>
                         <div class="form-group mb-4">
                             <label for="">Summary</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="summary">
                         </div>
                         <div class="form-group mb-4">
                             <label for="">Content</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="content">
                         </div>
                         <div class="form-group mb-4">
-                            <label name="category" for="">Category</label>
-                            <select class="form-control ">
+                            <label for="">Category</label>
+                            <select name="category" class="form-control ">
                                 <?php foreach ($categories as $category) {
                                 ?>
-                                    <option value="<?= $category->getID()?>"><?=$category->getName()?></option>
+                                    <option value="<?= $category->getID() ?>"><?= $category->getName() ?></option>
                                 <?php
                                 }
                                 ?>
@@ -48,17 +48,19 @@
                         <div class="form-group mb-4">
                             <label for="">Author</label>
                             <select name="author" class="form-control ">
-                                <option value="">1</option>
-                                <option value="">1</option>
-                                <option value="">1</option>
-                                <option value="">1</option>
+                                <?php foreach ($authors as $author) {
+                                ?>
+                                    <option value="<?= $author->getId() ?>"><?= $author->getForename() ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
-                        <div class="form-group mb-4">
+                        <!-- <div class="form-group mb-4">
                             <label for="">Image</label>
                             <input type="file" name="image" id="" class="form-control">
-                        </div>
-                        <button class="btn  btn-success">Create</button>
+                        </div> -->
+                        <button type="submit" name="create_btn" class="btn btn-success">Create</button>
                     </form>
 
                 </div>
