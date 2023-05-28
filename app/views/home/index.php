@@ -45,9 +45,9 @@
                                 <td><?= $article->getSummary() ?></td>
                                 <td><?= $article->getContent() ?></td>
                                 <td>
-                                    <a href="" class="btn btn-primary">Edit</a>
+                                    <a href="?route=edit" class="btn btn-primary">Edit</a>
                                     <form action="">
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <a href="?route=delete" class="btn btn-danger delete-btn" value="<?=$article->getID()?>">Delete</a>
                                     </form>
                                 </td>
                             </tr>

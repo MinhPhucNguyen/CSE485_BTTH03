@@ -1,6 +1,6 @@
 <?php 
-    require_once "../app/config/DBConnect.php";
-    require_once "../app/models/Category.php";
+    require_once APP_ROOT."/app/config/DBConnect.php";
+    require_once APP_ROOT."/app/models/Category.php";
     class CategoryService{
         public static function getAllCategory(){
             $DBConnect = new DBConnect();

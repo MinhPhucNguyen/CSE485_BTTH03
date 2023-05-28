@@ -1,5 +1,4 @@
 <?php 
-require_once "../app/config/config.php";
     class DBConnect{
         private $host;
         private $username;

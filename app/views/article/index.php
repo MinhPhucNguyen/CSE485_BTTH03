@@ -45,9 +45,9 @@
                                     <td><?= $article->getCategory_id() ?></td>
                                     <td><?= $article->getMember_id() ?></td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <form action="">
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        <a href="?route=edit" class="btn btn-primary">Edit</a>
+                                        <form action="" method="post">
+                                            <button type="submit" class="btn btn-danger delete-btn" value="<?=$article->getID()?>">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

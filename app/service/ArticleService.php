@@ -1,6 +1,6 @@
 <?php
-require_once "../app/models/Article.php";
-require_once  "../app/config/DBConnect.php";
+require_once APP_ROOT."/app/models/Article.php";
+require_once  APP_ROOT."/app/config/DBConnect.php";
 class ArticleService
 {
     public static function getAllArticles()
@@ -54,5 +54,14 @@ class ArticleService
         $author = $stmt->fetch();
 
         return $author['forename'];
+    }
+
+    public static function deletetArticle($articleID){
+        $DBConnect = new DBConnect();
+        $conn = $DBConnect->getConnection();
+
+        $sql = "DELETE *FROM article WHERE id = '$articleID'";
+        $stmt = $conn->query($sql);
+        $stmt->execute();
     }
 }
