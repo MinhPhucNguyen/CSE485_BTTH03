@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTTH 03</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Article Management</title>
+    <link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../../public/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -17,9 +17,9 @@
         </div>
         <div class="mt-4">
             <div>
-                <a href="?route=create" class="btn btn-success">Add New Article</a>
+                <a href="<?= DOMAIN . '?action=create'?>" class="btn btn-success">Add New Article</a>
             </div>
-            <div class="card">
+            <div class="card mt-4">
 
                 <div class="card-header">
                     <h4 class="d-inline-block">Article List</h4>
@@ -39,6 +39,7 @@
                             <?php
                             foreach ($articles as $article) {
                             ?>
+<<<<<<< HEAD
                             <tr>
                                 <td><?= $article->getID() ?></td>
                                 <td><?= $article->getTitle() ?></td>
@@ -51,6 +52,20 @@
                                     </form>
                                 </td>
                             </tr>
+=======
+                                <tr>
+                                    <td><?= $article->getID() ?></td>
+                                    <td><?= $article->getTitle() ?></td>
+                                    <td><?= $article->getSummary() ?></td>
+                                    <td><?= $article->getContent() ?></td>
+                                    <td>
+                                        <a href="" class="btn btn-primary">Edit</a>
+                                        <form action="">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+>>>>>>> 9cb5573b51d55b95b939dd27cc97cd27a930ab6f
                             <?php
                             }
                             ?>
@@ -61,9 +76,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>
